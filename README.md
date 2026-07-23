@@ -10,6 +10,7 @@ TailorAI is an AI agent that tailors a resume to a specific job description. Upl
 - **Bullet rewriting** — rewrites resume bullets for the target role, with a reason given for each change
 - **Cover letter generation** — produces a tailored cover letter based on the candidate's actual fit
 - **Live progress tracking** — the frontend polls the backend and shows a 5-step progress bar as the chain runs
+- **Token budget visibility** — the UI shows how many LLM context tokens remain during and after the analysis
 
 ### Agentic decision points
 
@@ -120,7 +121,7 @@ The app is now available at **http://localhost:5173**.
 
 1. Open the app and upload a PDF resume.
 2. Paste a job description.
-3. Click **Analyze**. You'll be redirected to a results page that polls the backend and shows live progress through all 5 steps.
+3. Click **Analyze**. You'll be redirected to a results page that polls the backend and shows live progress through all 5 steps, plus a live token-budget counter that updates as the chain consumes context.
 4. Once complete, review the skill gap report, rewritten bullets, and cover letter — each with a copy-to-clipboard button.
 
 ## API Endpoints

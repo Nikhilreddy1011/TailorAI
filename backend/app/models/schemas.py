@@ -12,6 +12,7 @@ from app.models.session import (
     RewrittenBullet,
     SelfEvaluation,
     SessionStatus,
+    TokenUsage,
 )
 
 
@@ -41,3 +42,4 @@ class SessionResponse(BaseModel):
     rewritten_bullets: list[RewrittenBullet] = Field(default_factory=list)
     cover_letter: Optional[str] = None
     self_evaluation: Optional[SelfEvaluation] = None
+    token_usage: Optional[TokenUsage] = None

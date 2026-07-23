@@ -67,6 +67,13 @@ class SelfEvaluation(BaseModel):
     re_runs: int = 0
 
 
+class TokenUsage(BaseModel):
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    total_tokens: int = 0
+    remaining_tokens: int = 0
+
+
 class Session(BaseModel):
     """Shape of a document in the `sessions` collection (excluding `_id`)."""
 
@@ -86,3 +93,4 @@ class Session(BaseModel):
     rewritten_bullets: list[RewrittenBullet] = Field(default_factory=list)
     cover_letter: Optional[str] = None
     self_evaluation: Optional[SelfEvaluation] = None
+    token_usage: Optional[TokenUsage] = None

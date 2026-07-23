@@ -28,6 +28,9 @@ export default function ResultsPage() {
   const [session, setSession] = useState(null);
   const [error, setError] = useState(null);
   const intervalRef = useRef(null);
+  const tokenUsage = session?.token_usage;
+  const remainingTokens = tokenUsage?.remaining_tokens ?? 0;
+  const usedTokens = tokenUsage?.total_tokens ?? 0;
 
   useEffect(() => {
     let cancelled = false;
@@ -87,6 +90,27 @@ export default function ResultsPage() {
                 currentStepName={session.current_step_name}
                 status={session.status}
               />
+
+              <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-slate-800">Token budget remaining</p>
+                    <p className="text-xs text-slate-500">
+                      {session.status === "processing"
+                        ? "Updating live as each AI step completes"
+                        : "Estimated remaining context tokens for this analysis"}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-lg font-semibold text-brand-600">
+                      {remainingTokens.toLocaleString()} tokens
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      {usedTokens.toLocaleString()} used so far
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {session.status === "failed" && (

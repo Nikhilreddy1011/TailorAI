@@ -45,6 +45,7 @@ async def upload_resume(
         "rewritten_bullets": [],
         "cover_letter": None,
         "self_evaluation": None,
+        "token_usage": None,
     }
 
     db = get_db()
