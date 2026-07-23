@@ -132,6 +132,14 @@ The app is now available at **http://localhost:5173**.
 | GET    | `/api/session/{session_id}`  | Poll for session status and results                       |
 | GET    | `/api/health`                | Health check                                               |
 
+The backend also exposes FastAPI documentation at:
+
+- `http://localhost:8000/docs` — Swagger UI
+- `http://localhost:8000/openapi.json` — OpenAPI schema
+- `http://localhost:8000/redoc` — ReDoc UI
+
+> Note: `http://localhost:8000/` is not a frontend page and will return `Not Found`.
+
 ### Example
 
 ```bash
