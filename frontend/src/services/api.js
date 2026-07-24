@@ -1,7 +1,11 @@
 // Axios calls to backend
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+// In production, use the current origin so deployed builds do not hardcode localhost.
+// In development, allow a local backend override via VITE_API_URL or fall back to localhost.
+const API_BASE_URL = import.meta.env.PROD
+  ? ""
+  : import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const client = axios.create({ baseURL: API_BASE_URL });
 
