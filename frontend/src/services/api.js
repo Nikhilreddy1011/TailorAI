@@ -4,12 +4,8 @@ import axios from "axios";
 // Use a relative path in production so the deployed frontend calls the same host.
 // In development, allow a local backend override via VITE_API_URL or default to localhost.
 const envApiUrl = import.meta.env.VITE_API_URL;
-const isLocalhostOverride =
-  envApiUrl === "http://localhost:8000" || envApiUrl === "https://localhost:8000";
 const API_BASE_URL = import.meta.env.PROD
-  ? isLocalhostOverride
-    ? ""
-    : envApiUrl || ""
+  ? ""
   : envApiUrl || "http://localhost:8000";
 
 const client = axios.create({ baseURL: API_BASE_URL || undefined });
