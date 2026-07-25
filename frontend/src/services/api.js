@@ -1,13 +1,12 @@
 // Axios calls to backend
 import axios from "axios";
 
-// In production, use the current origin so deployed builds do not hardcode localhost.
-// In development, allow a local backend override via VITE_API_URL or fall back to localhost.
-const API_BASE_URL = import.meta.env.PROD
-  ? ""
-  : import.meta.env.VITE_API_URL || "http://localhost:8000";
+// Use a relative path in production so the deployed frontend calls the same host.
+// In development, allow a local backend override via VITE_API_URL or default to localhost.
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "" : "http://localhost:8000");
 
-const client = axios.create({ baseURL: API_BASE_URL });
+const client = axios.create({ baseURL: API_BASE_URL || undefined });
 
 export async function uploadResume(resumeFile, jobDescription) {
   const formData = new FormData();

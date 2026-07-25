@@ -6,7 +6,7 @@ class Settings(BaseSettings):
 
     MONGO_URI: str
     GROQ_API_KEY: str
-    FRONTEND_URL: str = "http://localhost:5173"
+    FRONTEND_URL: str | None = None
 
 
 settings = Settings()
