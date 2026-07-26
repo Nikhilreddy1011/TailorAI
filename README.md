@@ -2,6 +2,12 @@
 
 TailorAI is an AI agent that tailors a resume to a specific job description. Upload a resume (PDF) and paste a job description, and the agent runs a 5-stage prompt chain that produces a skill-gap report, an ATS keyword analysis, rewritten resume bullets (original vs. improved, side by side), and a tailored cover letter — while making autonomous decisions along the way about how aggressively to rewrite and whether the role is even a good fit.
 
+## What's New
+
+- **Live workflow progress** — the results page now shows each stage of the AI chain as it completes, so users can follow the analysis in real time.
+- **Token budget visibility** — the interface surfaces how much LLM context is being consumed during the run and after completion.
+- **Copy-friendly outputs** — generated bullets, gap insights, and the cover letter can be copied quickly from the UI for easy sharing or editing.
+
 ## Features
 
 - **Resume parsing** — extracts skills, experience, education, and projects from a PDF resume
