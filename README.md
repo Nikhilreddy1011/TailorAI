@@ -123,6 +123,12 @@ npm run dev
 
 The app is now available at **http://localhost:5173**.
 
+## Deployment Notes
+
+- For local development, point the frontend at the local backend with `VITE_API_URL=http://localhost:8000`.
+- For production deployments such as Vercel, the frontend is configured to use relative `/api` paths so it can reach the backend without hard-coded `localhost` values.
+- If you deploy the frontend and backend separately, make sure the frontend is allowed to call the backend domain and that CORS is enabled for that origin.
+
 ## Usage
 
 1. Open the app and upload a PDF resume.
